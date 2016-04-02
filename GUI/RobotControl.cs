@@ -234,6 +234,16 @@ namespace GUI
             this.zGo_Click(null, EventArgs.Empty);
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //private List<PreviousPoint> previousPoints = new List<PreviousPoint>();
         //public class PreviousPoint
         //{

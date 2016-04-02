@@ -38,37 +38,38 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 42);
+            this.label2.Location = new System.Drawing.Point(12, 39);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Baud Rate";
+            this.label2.Text = "波特率 ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Location = new System.Drawing.Point(12, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Port";
+            this.label1.Text = "端口";
             // 
             // baudBox
             // 
-            this.baudBox.Location = new System.Drawing.Point(76, 39);
+            this.baudBox.Location = new System.Drawing.Point(76, 36);
             this.baudBox.Name = "baudBox";
-            this.baudBox.Size = new System.Drawing.Size(89, 20);
+            this.baudBox.Size = new System.Drawing.Size(89, 21);
             this.baudBox.TabIndex = 10;
-            this.baudBox.Text = "9600";
+            this.baudBox.Text = "115200";
+            this.baudBox.TextChanged += new System.EventHandler(this.baudBox_TextChanged);
             // 
             // connect
             // 
             this.connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connect.Location = new System.Drawing.Point(12, 65);
+            this.connect.Location = new System.Drawing.Point(12, 60);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(153, 23);
+            this.connect.Size = new System.Drawing.Size(153, 21);
             this.connect.TabIndex = 8;
-            this.connect.Text = "Connect";
+            this.connect.Text = "连接";
             this.connect.UseVisualStyleBackColor = true;
             this.connect.Click += new System.EventHandler(this.connect_Click);
             // 
@@ -76,24 +77,24 @@
             // 
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 12);
+            this.comboBox1.Location = new System.Drawing.Point(44, 11);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // COMPortForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(178, 98);
+            this.ClientSize = new System.Drawing.Size(178, 90);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.baudBox);
             this.Controls.Add(this.connect);
             this.Name = "COMPortForm";
-            this.Text = "COMPort";
+            this.Text = "串口";
             this.ResumeLayout(false);
             this.PerformLayout();
 

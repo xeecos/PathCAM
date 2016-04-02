@@ -51,7 +51,7 @@ namespace Serial
         {
             // Setup the serial port defaults
             port = new SerialPort();
-            port.BaudRate = 9600;
+            port.BaudRate = 115200;
             port.DataBits = 8;
             port.Parity = Parity.None;
             port.Handshake = Handshake.None;

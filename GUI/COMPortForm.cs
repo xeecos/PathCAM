@@ -35,7 +35,7 @@ namespace GUI
             SelectPortName(port.PortName);
             if (port.IsOpen)
             {
-                connect.Text = "Disconnect";
+                connect.Text = "断开连接";
             }
             else
             {
@@ -106,7 +106,7 @@ namespace GUI
             if (port.IsOpen)
             {
                 port.Close();
-                connect.Text = "Connect";
+                connect.Text = "连接";
             }
             else
             {
@@ -115,7 +115,7 @@ namespace GUI
                     int baudRate = Convert.ToInt32(this.baudBox.Text);
                     string portName = comboBox1.Text;
                     port.Open(portName, baudRate);
-                    connect.Text = "Disconnect";
+                    connect.Text = "断开连接";
                 }
                 catch (NullReferenceException)
                 {
@@ -150,6 +150,11 @@ namespace GUI
                     this.connect.Enabled = false;
                 }
             }
+        }
+
+        private void baudBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

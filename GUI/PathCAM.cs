@@ -306,54 +306,54 @@ namespace GUI
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(12, 12);
+            this.button2.Location = new System.Drawing.Point(12, 11);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(183, 23);
+            this.button2.Size = new System.Drawing.Size(225, 25);
             this.button2.TabIndex = 1;
-            this.button2.Text = "Add Cutting Paths";
+            this.button2.Text = "生成切割路径";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.PermiterRoutsClick);
             // 
             // propertyGrid
             // 
             this.propertyGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.propertyGrid.Location = new System.Drawing.Point(12, 157);
+            this.propertyGrid.Location = new System.Drawing.Point(12, 167);
             this.propertyGrid.Name = "propertyGrid";
             this.propertyGrid.PropertySort = System.Windows.Forms.PropertySort.NoSort;
-            this.propertyGrid.Size = new System.Drawing.Size(183, 205);
+            this.propertyGrid.Size = new System.Drawing.Size(225, 189);
             this.propertyGrid.TabIndex = 5;
             this.propertyGrid.ToolbarVisible = false;
             // 
             // saveGcodeButton
             // 
             this.saveGcodeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveGcodeButton.Location = new System.Drawing.Point(12, 99);
+            this.saveGcodeButton.Location = new System.Drawing.Point(12, 109);
             this.saveGcodeButton.Name = "saveGcodeButton";
-            this.saveGcodeButton.Size = new System.Drawing.Size(183, 23);
+            this.saveGcodeButton.Size = new System.Drawing.Size(225, 25);
             this.saveGcodeButton.TabIndex = 4;
-            this.saveGcodeButton.Text = "Save GCode";
+            this.saveGcodeButton.Text = "保存 GCode";
             this.saveGcodeButton.UseVisualStyleBackColor = true;
             this.saveGcodeButton.Click += new System.EventHandler(this.saveGcodeButton_Click);
             // 
             // clearPathsButton
             // 
             this.clearPathsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearPathsButton.Location = new System.Drawing.Point(12, 70);
+            this.clearPathsButton.Location = new System.Drawing.Point(12, 76);
             this.clearPathsButton.Name = "clearPathsButton";
-            this.clearPathsButton.Size = new System.Drawing.Size(183, 23);
+            this.clearPathsButton.Size = new System.Drawing.Size(225, 27);
             this.clearPathsButton.TabIndex = 3;
-            this.clearPathsButton.Text = "Clear Paths";
+            this.clearPathsButton.Text = "清除路径";
             this.clearPathsButton.UseVisualStyleBackColor = true;
             this.clearPathsButton.Click += new System.EventHandler(this.clearPathsButton_Click);
             // 
             // boundaryCheck
             // 
             this.boundaryCheck.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.boundaryCheck.Location = new System.Drawing.Point(12, 41);
+            this.boundaryCheck.Location = new System.Drawing.Point(12, 42);
             this.boundaryCheck.Name = "boundaryCheck";
-            this.boundaryCheck.Size = new System.Drawing.Size(183, 23);
+            this.boundaryCheck.Size = new System.Drawing.Size(225, 28);
             this.boundaryCheck.TabIndex = 2;
-            this.boundaryCheck.Text = "Add Boundary Path";
+            this.boundaryCheck.Text = "生成边界路径";
             this.boundaryCheck.UseVisualStyleBackColor = true;
             this.boundaryCheck.Click += new System.EventHandler(this.boundaryCheckButton_Click);
             // 
@@ -367,9 +367,9 @@ namespace GUI
             "25.4:1 (millimeters)",
             ".254:1 (meters)",
             "1:12 (feet)"});
-            this.comboBox1.Location = new System.Drawing.Point(87, 129);
+            this.comboBox1.Location = new System.Drawing.Point(103, 141);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(107, 21);
+            this.comboBox1.Size = new System.Drawing.Size(134, 20);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "1:1 (inches)";
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
@@ -377,11 +377,11 @@ namespace GUI
             // openFileButton
             // 
             this.openFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openFileButton.Location = new System.Drawing.Point(12, 128);
+            this.openFileButton.Location = new System.Drawing.Point(12, 140);
             this.openFileButton.Name = "openFileButton";
-            this.openFileButton.Size = new System.Drawing.Size(70, 23);
+            this.openFileButton.Size = new System.Drawing.Size(85, 21);
             this.openFileButton.TabIndex = 6;
-            this.openFileButton.Text = "Open File";
+            this.openFileButton.Text = "打开3D文件";
             this.openFileButton.UseVisualStyleBackColor = true;
             this.openFileButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
@@ -389,7 +389,7 @@ namespace GUI
             // 
             this.showRobotFormCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showRobotFormCheckbox.AutoSize = true;
-            this.showRobotFormCheckbox.Location = new System.Drawing.Point(-1, 549);
+            this.showRobotFormCheckbox.Location = new System.Drawing.Point(-1, 506);
             this.showRobotFormCheckbox.Name = "showRobotFormCheckbox";
             this.showRobotFormCheckbox.Size = new System.Drawing.Size(15, 14);
             this.showRobotFormCheckbox.TabIndex = 69;
@@ -399,9 +399,9 @@ namespace GUI
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(86, 128);
+            this.pictureBox1.Location = new System.Drawing.Point(103, 140);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(109, 23);
+            this.pictureBox1.Size = new System.Drawing.Size(134, 21);
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
             // 
@@ -409,9 +409,9 @@ namespace GUI
             // 
             this.robotControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.robotControl.BackColor = System.Drawing.Color.Transparent;
-            this.robotControl.Location = new System.Drawing.Point(-1, 427);
+            this.robotControl.Location = new System.Drawing.Point(12, 374);
             this.robotControl.Name = "robotControl";
-            this.robotControl.Size = new System.Drawing.Size(169, 136);
+            this.robotControl.Size = new System.Drawing.Size(603, 126);
             this.robotControl.TabIndex = 8;
             this.robotControl.Visible = false;
             this.robotControl.Load += new System.EventHandler(this.robotControl_Load);
@@ -425,19 +425,19 @@ namespace GUI
             this.drawing3D.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.drawing3D.BackColor = System.Drawing.Color.Black;
             this.drawing3D.ClearColor = System.Drawing.Color.Empty;
-            this.drawing3D.Location = new System.Drawing.Point(472, 12);
-            this.drawing3D.MinimumSize = new System.Drawing.Size(10, 10);
+            this.drawing3D.Location = new System.Drawing.Point(472, 11);
+            this.drawing3D.MinimumSize = new System.Drawing.Size(10, 9);
             this.drawing3D.Name = "drawing3D";
             this.drawing3D.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.drawing3D.Size = new System.Drawing.Size(300, 198);
+            this.drawing3D.Size = new System.Drawing.Size(300, 183);
             this.drawing3D.TabIndex = 68;
             this.drawing3D.VSync = false;
             // 
             // PathCAM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(784, 519);
             this.Controls.Add(this.showRobotFormCheckbox);
             this.Controls.Add(this.saveGcodeButton);
             this.Controls.Add(this.button2);
@@ -450,7 +450,7 @@ namespace GUI
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.drawing3D);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(600, 500);
+            this.MinimumSize = new System.Drawing.Size(600, 465);
             this.Name = "PathCAM";
             this.Text = "PathCAM - Toolpath generation software for CNC robots";
             this.Load += new System.EventHandler(this.PathCAM_Load);
