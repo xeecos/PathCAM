@@ -158,6 +158,7 @@ namespace Robot
             {
                 // This command works both as a status command for the binary format
                 // And as a reset command for the Grbl commands.
+                return System.Text.Encoding.ASCII.GetBytes("G100");
                 return new byte[] { 0xCA, 0x21, 0x02, 0x77, 0x4D, 0x18 };
             }
 
@@ -322,7 +323,7 @@ namespace Robot
 
             if (sendZeroCommand)
             {
-                currentCommand = commandGenerator.GenerateZeroCommand();
+                serial.Transmit(System.Text.Encoding.ASCII.GetBytes("G92 X0 Y0 Z0\r\n"));
                 sendZeroCommand = false;
             }
             if (sendCancelCommand)

@@ -55,6 +55,7 @@ namespace Robot
             internal override byte[] GenerateCommand()
             {
                 //Console.WriteLine("Sending ?");
+                return System.Text.Encoding.ASCII.GetBytes("G101");
                 return new byte[] { (byte)'?' };
             }
 
@@ -63,7 +64,7 @@ namespace Robot
                 var result = parent.ProcessGrblByte(data);
                 if (result != null)
                 {
-                    Console.WriteLine("Received GRBL Data: " + result);
+                    //Console.WriteLine("Received GRBL Data: " + result);
                     if (result.Equals("ok", StringComparison.OrdinalIgnoreCase))
                     {
                         canAcceptMoveCommand = true;
@@ -106,7 +107,7 @@ namespace Robot
                         location.X = position[0];
                         location.Y = position[1];
                         location.Z = position[2];
-                        location = location / 25.4f;
+                        //location = location / 25.4f;
                         return true;
                     }
                     else
@@ -157,12 +158,12 @@ namespace Robot
                 : base(parent)
             {
                 toLocation = location;
-                target_mm_per_minute = inches_per_second * 25.4f * 60.0f;
+                target_mm_per_minute = inches_per_second * 60.0f;
             }
 
             internal override byte[] GenerateCommand()
             {
-                var target_mm = toLocation * 25.4f;
+                var target_mm = toLocation;
                 String s = String.Format("F{0:F3}\r\nG1 X{1:F4} Y{2:F4} Z{3:F4}\r\n?", target_mm_per_minute, target_mm.X, target_mm.Y, target_mm.Z);
                 Console.WriteLine("Sending: " + s);
                 return System.Text.Encoding.ASCII.GetBytes(s);

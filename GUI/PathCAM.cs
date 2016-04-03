@@ -317,7 +317,7 @@ namespace GUI
             // propertyGrid
             // 
             this.propertyGrid.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.propertyGrid.Location = new System.Drawing.Point(12, 167);
+            this.propertyGrid.Location = new System.Drawing.Point(12, 175);
             this.propertyGrid.Name = "propertyGrid";
             this.propertyGrid.PropertySort = System.Windows.Forms.PropertySort.NoSort;
             this.propertyGrid.Size = new System.Drawing.Size(225, 189);
@@ -367,11 +367,12 @@ namespace GUI
             "25.4:1 (millimeters)",
             ".254:1 (meters)",
             "1:12 (feet)"});
-            this.comboBox1.Location = new System.Drawing.Point(103, 141);
+            this.comboBox1.Location = new System.Drawing.Point(103, 146);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(134, 20);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "1:1 (inches)";
+            this.comboBox1.Visible = false;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // openFileButton
@@ -379,7 +380,7 @@ namespace GUI
             this.openFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.openFileButton.Location = new System.Drawing.Point(12, 140);
             this.openFileButton.Name = "openFileButton";
-            this.openFileButton.Size = new System.Drawing.Size(85, 21);
+            this.openFileButton.Size = new System.Drawing.Size(85, 29);
             this.openFileButton.TabIndex = 6;
             this.openFileButton.Text = "打开3D文件";
             this.openFileButton.UseVisualStyleBackColor = true;
@@ -389,7 +390,9 @@ namespace GUI
             // 
             this.showRobotFormCheckbox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showRobotFormCheckbox.AutoSize = true;
-            this.showRobotFormCheckbox.Location = new System.Drawing.Point(-1, 506);
+            this.showRobotFormCheckbox.Checked = true;
+            this.showRobotFormCheckbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showRobotFormCheckbox.Location = new System.Drawing.Point(-1, 525);
             this.showRobotFormCheckbox.Name = "showRobotFormCheckbox";
             this.showRobotFormCheckbox.Size = new System.Drawing.Size(15, 14);
             this.showRobotFormCheckbox.TabIndex = 69;
@@ -399,21 +402,21 @@ namespace GUI
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(103, 140);
+            this.pictureBox1.Location = new System.Drawing.Point(103, 145);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(134, 21);
             this.pictureBox1.TabIndex = 70;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
             // 
             // robotControl
             // 
             this.robotControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.robotControl.BackColor = System.Drawing.Color.Transparent;
-            this.robotControl.Location = new System.Drawing.Point(12, 374);
+            this.robotControl.Location = new System.Drawing.Point(12, 370);
             this.robotControl.Name = "robotControl";
-            this.robotControl.Size = new System.Drawing.Size(603, 126);
+            this.robotControl.Size = new System.Drawing.Size(603, 135);
             this.robotControl.TabIndex = 8;
-            this.robotControl.Visible = false;
             this.robotControl.Load += new System.EventHandler(this.robotControl_Load);
             // 
             // drawing3D
@@ -437,7 +440,7 @@ namespace GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 519);
+            this.ClientSize = new System.Drawing.Size(784, 538);
             this.Controls.Add(this.showRobotFormCheckbox);
             this.Controls.Add(this.saveGcodeButton);
             this.Controls.Add(this.button2);
@@ -488,7 +491,7 @@ namespace GUI
             this.drawing3D.Location = new Point(0, 0);
             this.drawing3D.Size = this.ClientRectangle.Size;
             robotControl.Location = new Point(0, ClientRectangle.Height - robotControl.Height);
-            showRobotFormCheckbox.Location = new Point(0, ClientRectangle.Height - showRobotFormCheckbox.Height + 1);
+            showRobotFormCheckbox.Location = new Point(2, ClientRectangle.Height - showRobotFormCheckbox.Height - 2);
         }
 
         private void robotControl_Load(object sender, EventArgs e)

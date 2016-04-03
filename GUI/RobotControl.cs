@@ -59,30 +59,43 @@ namespace GUI
                 {
                     this.runButton.Enabled = true;
                     this.steppersEnabledBox.Enabled = true;
-                    this.zbox.Enabled = true;
-                    this.zGo.Enabled = true;
-
+                    this.buttonLeftX.Enabled = true;
+                    this.buttonLeftY.Enabled = true;
+                    this.buttonLeftZ.Enabled = true;
+                    this.buttonLeftX10.Enabled = true;
+                    this.buttonLeftY10.Enabled = true;
+                    this.buttonLeftZ10.Enabled = true;
+                    this.buttonRightX.Enabled = true;
+                    this.buttonRightY.Enabled = true;
+                    this.buttonRightZ.Enabled = true;
+                    this.buttonRightX10.Enabled = true;
+                    this.buttonRightY10.Enabled = true;
+                    this.buttonRightZ10.Enabled = true;
+                    this.buttonBackX.Enabled = true;
+                    this.buttonBackY.Enabled = true;
+                    this.buttonBackZ.Enabled = true;
+                    this.buttonHomePosition.Enabled = true;
                     this.steppersEnabledBox.Checked = status.SteppersEnabled;
                     if (status.Pausing)
                     {
-                        pause_resume_button.Text = "Pausing...";
+                        pause_resume_button.Text = "暂停中...";
                         pause_resume_button.Enabled = false;
                     }
                     else
                     {
                         if (status.Paused)
                         {
-                            if (pause_resume_button.Text != "Resume")
+                            if (pause_resume_button.Text != "继续")
                             {
                                 cancelButton.Enabled = true;
-                                pause_resume_button.Text = "Resume";
+                                pause_resume_button.Text = "继续";
                             }
                         }
                         else
                         {
-                            if (pause_resume_button.Text != "Pause")
+                            if (pause_resume_button.Text != "暂停")
                             {
-                                pause_resume_button.Text = "Pause";
+                                pause_resume_button.Text = "暂停";
                             }
                         }
                         pause_resume_button.Enabled = true;
@@ -156,11 +169,11 @@ namespace GUI
 
         private void pause_resume_button_Click(object sender, EventArgs e)
         {
-            if (pause_resume_button.Text == "Pause")
+            if (pause_resume_button.Text == "暂停")
             {
                 robot.SendPauseCommand();
             }
-            else if (pause_resume_button.Text == "Resume")
+            else if (pause_resume_button.Text == "继续")
             {
                 robot.SendResumeCommand();
                 cancelButton.Enabled = false;
@@ -199,12 +212,6 @@ namespace GUI
             }
         }
 
-        private void zGo_Click(object sender, EventArgs e)
-        {
-            float f = float.Parse(zbox.Text);
-            MoveTool move = new MoveTool(new Vector3(0, 0, f), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -223,7 +230,7 @@ namespace GUI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonHomePosition_Click(object sender, EventArgs e)
         {
             robot.Zero();
         }
@@ -231,7 +238,6 @@ namespace GUI
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             robot.z_offset = (float)numericUpDown1.Value;
-            this.zGo_Click(null, EventArgs.Empty);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -239,10 +245,131 @@ namespace GUI
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void steppersEnabledBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+        
+
+        private void buttonBackX_Click(object sender, EventArgs e)
+        {
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(0, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonBackY_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, 0, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonBackZ_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, 0), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftX_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X - 1, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftX10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X - 10, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftY_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y-1, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftY10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y - 10, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftZ_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z-1), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonLeftZ10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z-10), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightZ_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z+1), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightZ10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z+10), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightY10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y+10, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightY_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y+1, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightX_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X+1, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
+        private void buttonRightX10_Click(object sender, EventArgs e)
+        {
+
+            Vector3 vec = robot.GetPosition();
+            MoveTool move = new MoveTool(new Vector3(vec.X+10, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
+            robot.AddCommand(move);
+        }
+
 
         //private List<PreviousPoint> previousPoints = new List<PreviousPoint>();
         //public class PreviousPoint

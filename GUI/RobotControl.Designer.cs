@@ -30,29 +30,28 @@
         {
             this.steppersEnabledBox = new System.Windows.Forms.CheckBox();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.zbox = new System.Windows.Forms.TextBox();
             this.pause_resume_button = new System.Windows.Forms.Button();
-            this.zGo = new System.Windows.Forms.Button();
             this.runButton = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonBackY = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
+            this.buttonRightY = new System.Windows.Forms.Button();
+            this.buttonLeftY = new System.Windows.Forms.Button();
+            this.buttonLeftY10 = new System.Windows.Forms.Button();
+            this.buttonRightY10 = new System.Windows.Forms.Button();
+            this.buttonRightZ10 = new System.Windows.Forms.Button();
+            this.buttonLeftZ10 = new System.Windows.Forms.Button();
+            this.buttonLeftZ = new System.Windows.Forms.Button();
+            this.buttonRightZ = new System.Windows.Forms.Button();
+            this.buttonBackZ = new System.Windows.Forms.Button();
+            this.buttonRightX10 = new System.Windows.Forms.Button();
+            this.buttonLeftX10 = new System.Windows.Forms.Button();
+            this.buttonLeftX = new System.Windows.Forms.Button();
+            this.buttonRightX = new System.Windows.Forms.Button();
+            this.buttonBackX = new System.Windows.Forms.Button();
+            this.buttonHomePosition = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +67,7 @@
             this.steppersEnabledBox.TabIndex = 3;
             this.steppersEnabledBox.Text = "使能步进电机";
             this.steppersEnabledBox.UseVisualStyleBackColor = true;
+            this.steppersEnabledBox.CheckedChanged += new System.EventHandler(this.steppersEnabledBox_CheckedChanged);
             this.steppersEnabledBox.Click += new System.EventHandler(this.steppersEnabledBox_Click);
             // 
             // cancelButton
@@ -78,18 +78,9 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 2;
-            this.cancelButton.Text = "清除";
+            this.cancelButton.Text = "停止";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // zbox
-            // 
-            this.zbox.Enabled = false;
-            this.zbox.Location = new System.Drawing.Point(65, 76);
-            this.zbox.Name = "zbox";
-            this.zbox.Size = new System.Drawing.Size(110, 21);
-            this.zbox.TabIndex = 78;
-            this.zbox.Text = "0";
             // 
             // pause_resume_button
             // 
@@ -102,18 +93,6 @@
             this.pause_resume_button.Text = "暂停";
             this.pause_resume_button.UseVisualStyleBackColor = true;
             this.pause_resume_button.Click += new System.EventHandler(this.pause_resume_button_Click);
-            // 
-            // zGo
-            // 
-            this.zGo.Enabled = false;
-            this.zGo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.zGo.Location = new System.Drawing.Point(6, 74);
-            this.zGo.Name = "zGo";
-            this.zGo.Size = new System.Drawing.Size(53, 23);
-            this.zGo.TabIndex = 77;
-            this.zGo.Text = "ZGo";
-            this.zGo.UseVisualStyleBackColor = true;
-            this.zGo.Click += new System.EventHandler(this.zGo_Click);
             // 
             // runButton
             // 
@@ -148,16 +127,17 @@
             this.label1.Text = "------------CNC------------";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
+            // buttonBackY
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(356, 45);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "Y 回到零点";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonBackY.Enabled = false;
+            this.buttonBackY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackY.Location = new System.Drawing.Point(356, 45);
+            this.buttonBackY.Name = "buttonBackY";
+            this.buttonBackY.Size = new System.Drawing.Size(75, 23);
+            this.buttonBackY.TabIndex = 81;
+            this.buttonBackY.Text = "Y 回到零点";
+            this.buttonBackY.UseVisualStyleBackColor = true;
+            this.buttonBackY.Click += new System.EventHandler(this.buttonBackY_Click);
             // 
             // numericUpDown1
             // 
@@ -167,7 +147,7 @@
             0,
             0,
             196608});
-            this.numericUpDown1.Location = new System.Drawing.Point(384, 102);
+            this.numericUpDown1.Location = new System.Drawing.Point(65, 77);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
             0,
@@ -186,183 +166,221 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(325, 104);
+            this.label2.Location = new System.Drawing.Point(3, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 83;
             this.label2.Text = "Z Offset";
             // 
-            // button2
+            // buttonRightY
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(437, 45);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 84;
-            this.button2.Text = "Y +1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonRightY.Enabled = false;
+            this.buttonRightY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightY.Location = new System.Drawing.Point(437, 45);
+            this.buttonRightY.Name = "buttonRightY";
+            this.buttonRightY.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightY.TabIndex = 84;
+            this.buttonRightY.Text = "Y +1";
+            this.buttonRightY.UseVisualStyleBackColor = true;
+            this.buttonRightY.Click += new System.EventHandler(this.buttonRightY_Click);
             // 
-            // button3
+            // buttonLeftY
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(275, 45);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 85;
-            this.button3.Text = "Y -1";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonLeftY.Enabled = false;
+            this.buttonLeftY.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftY.Location = new System.Drawing.Point(275, 45);
+            this.buttonLeftY.Name = "buttonLeftY";
+            this.buttonLeftY.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftY.TabIndex = 85;
+            this.buttonLeftY.Text = "Y -1";
+            this.buttonLeftY.UseVisualStyleBackColor = true;
+            this.buttonLeftY.Click += new System.EventHandler(this.buttonLeftY_Click);
             // 
-            // button5
+            // buttonLeftY10
             // 
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(194, 45);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 86;
-            this.button5.Text = "Y -10";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonLeftY10.Enabled = false;
+            this.buttonLeftY10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftY10.Location = new System.Drawing.Point(194, 45);
+            this.buttonLeftY10.Name = "buttonLeftY10";
+            this.buttonLeftY10.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftY10.TabIndex = 86;
+            this.buttonLeftY10.Text = "Y -10";
+            this.buttonLeftY10.UseVisualStyleBackColor = true;
+            this.buttonLeftY10.Click += new System.EventHandler(this.buttonLeftY10_Click);
             // 
-            // button6
+            // buttonRightY10
             // 
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Location = new System.Drawing.Point(518, 45);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 87;
-            this.button6.Text = "Y +10";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonRightY10.Enabled = false;
+            this.buttonRightY10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightY10.Location = new System.Drawing.Point(518, 45);
+            this.buttonRightY10.Name = "buttonRightY10";
+            this.buttonRightY10.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightY10.TabIndex = 87;
+            this.buttonRightY10.Text = "Y +10";
+            this.buttonRightY10.UseVisualStyleBackColor = true;
+            this.buttonRightY10.Click += new System.EventHandler(this.buttonRightY10_Click);
             // 
-            // button7
+            // buttonRightZ10
             // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(518, 74);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 92;
-            this.button7.Text = "Z +10";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonRightZ10.Enabled = false;
+            this.buttonRightZ10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightZ10.Location = new System.Drawing.Point(518, 74);
+            this.buttonRightZ10.Name = "buttonRightZ10";
+            this.buttonRightZ10.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightZ10.TabIndex = 92;
+            this.buttonRightZ10.Text = "Z +10";
+            this.buttonRightZ10.UseVisualStyleBackColor = true;
+            this.buttonRightZ10.Click += new System.EventHandler(this.buttonRightZ10_Click);
             // 
-            // button8
+            // buttonLeftZ10
             // 
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Location = new System.Drawing.Point(194, 74);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 23);
-            this.button8.TabIndex = 91;
-            this.button8.Text = "Z -10";
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonLeftZ10.Enabled = false;
+            this.buttonLeftZ10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftZ10.Location = new System.Drawing.Point(194, 74);
+            this.buttonLeftZ10.Name = "buttonLeftZ10";
+            this.buttonLeftZ10.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftZ10.TabIndex = 91;
+            this.buttonLeftZ10.Text = "Z -10";
+            this.buttonLeftZ10.UseVisualStyleBackColor = true;
+            this.buttonLeftZ10.Click += new System.EventHandler(this.buttonLeftZ10_Click);
             // 
-            // button9
+            // buttonLeftZ
             // 
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Location = new System.Drawing.Point(275, 74);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 23);
-            this.button9.TabIndex = 90;
-            this.button9.Text = "Z -1";
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonLeftZ.Enabled = false;
+            this.buttonLeftZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftZ.Location = new System.Drawing.Point(275, 74);
+            this.buttonLeftZ.Name = "buttonLeftZ";
+            this.buttonLeftZ.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftZ.TabIndex = 90;
+            this.buttonLeftZ.Text = "Z -1";
+            this.buttonLeftZ.UseVisualStyleBackColor = true;
+            this.buttonLeftZ.Click += new System.EventHandler(this.buttonLeftZ_Click);
             // 
-            // button10
+            // buttonRightZ
             // 
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(437, 74);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 23);
-            this.button10.TabIndex = 89;
-            this.button10.Text = "Z +1";
-            this.button10.UseVisualStyleBackColor = true;
+            this.buttonRightZ.Enabled = false;
+            this.buttonRightZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightZ.Location = new System.Drawing.Point(437, 74);
+            this.buttonRightZ.Name = "buttonRightZ";
+            this.buttonRightZ.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightZ.TabIndex = 89;
+            this.buttonRightZ.Text = "Z +1";
+            this.buttonRightZ.UseVisualStyleBackColor = true;
+            this.buttonRightZ.Click += new System.EventHandler(this.buttonRightZ_Click);
             // 
-            // button11
+            // buttonBackZ
             // 
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(356, 74);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(75, 23);
-            this.button11.TabIndex = 88;
-            this.button11.Text = "Z 回到零点";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buttonBackZ.Enabled = false;
+            this.buttonBackZ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackZ.Location = new System.Drawing.Point(356, 74);
+            this.buttonBackZ.Name = "buttonBackZ";
+            this.buttonBackZ.Size = new System.Drawing.Size(75, 23);
+            this.buttonBackZ.TabIndex = 88;
+            this.buttonBackZ.Text = "Z 回到零点";
+            this.buttonBackZ.UseVisualStyleBackColor = true;
+            this.buttonBackZ.Click += new System.EventHandler(this.buttonBackZ_Click);
             // 
-            // button12
+            // buttonRightX10
             // 
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(518, 15);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(75, 23);
-            this.button12.TabIndex = 97;
-            this.button12.Text = "X +10";
-            this.button12.UseVisualStyleBackColor = true;
+            this.buttonRightX10.Enabled = false;
+            this.buttonRightX10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightX10.Location = new System.Drawing.Point(518, 15);
+            this.buttonRightX10.Name = "buttonRightX10";
+            this.buttonRightX10.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightX10.TabIndex = 97;
+            this.buttonRightX10.Text = "X +10";
+            this.buttonRightX10.UseVisualStyleBackColor = true;
+            this.buttonRightX10.Click += new System.EventHandler(this.buttonRightX10_Click);
             // 
-            // button13
+            // buttonLeftX10
             // 
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(194, 15);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 23);
-            this.button13.TabIndex = 96;
-            this.button13.Text = "X -10";
-            this.button13.UseVisualStyleBackColor = true;
+            this.buttonLeftX10.Enabled = false;
+            this.buttonLeftX10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftX10.Location = new System.Drawing.Point(194, 15);
+            this.buttonLeftX10.Name = "buttonLeftX10";
+            this.buttonLeftX10.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftX10.TabIndex = 96;
+            this.buttonLeftX10.Text = "X -10";
+            this.buttonLeftX10.UseVisualStyleBackColor = true;
+            this.buttonLeftX10.Click += new System.EventHandler(this.buttonLeftX10_Click);
             // 
-            // button14
+            // buttonLeftX
             // 
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(275, 15);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(75, 23);
-            this.button14.TabIndex = 95;
-            this.button14.Text = "X -1";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonLeftX.Enabled = false;
+            this.buttonLeftX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLeftX.Location = new System.Drawing.Point(275, 15);
+            this.buttonLeftX.Name = "buttonLeftX";
+            this.buttonLeftX.Size = new System.Drawing.Size(75, 23);
+            this.buttonLeftX.TabIndex = 95;
+            this.buttonLeftX.Text = "X -1";
+            this.buttonLeftX.UseVisualStyleBackColor = true;
+            this.buttonLeftX.Click += new System.EventHandler(this.buttonLeftX_Click);
             // 
-            // button15
+            // buttonRightX
             // 
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(437, 15);
-            this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(75, 23);
-            this.button15.TabIndex = 94;
-            this.button15.Text = "X +1";
-            this.button15.UseVisualStyleBackColor = true;
+            this.buttonRightX.Enabled = false;
+            this.buttonRightX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRightX.Location = new System.Drawing.Point(437, 15);
+            this.buttonRightX.Name = "buttonRightX";
+            this.buttonRightX.Size = new System.Drawing.Size(75, 23);
+            this.buttonRightX.TabIndex = 94;
+            this.buttonRightX.Text = "X +1";
+            this.buttonRightX.UseVisualStyleBackColor = true;
+            this.buttonRightX.Click += new System.EventHandler(this.buttonRightX_Click);
             // 
-            // button16
+            // buttonBackX
             // 
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Location = new System.Drawing.Point(356, 15);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(75, 23);
-            this.button16.TabIndex = 93;
-            this.button16.Text = "X 回到零点";
-            this.button16.UseVisualStyleBackColor = true;
+            this.buttonBackX.Enabled = false;
+            this.buttonBackX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBackX.Location = new System.Drawing.Point(356, 15);
+            this.buttonBackX.Name = "buttonBackX";
+            this.buttonBackX.Size = new System.Drawing.Size(75, 23);
+            this.buttonBackX.TabIndex = 93;
+            this.buttonBackX.Text = "X 回到零点";
+            this.buttonBackX.UseVisualStyleBackColor = true;
+            this.buttonBackX.Click += new System.EventHandler(this.buttonBackX_Click);
+            // 
+            // buttonHomePosition
+            // 
+            this.buttonHomePosition.Enabled = false;
+            this.buttonHomePosition.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHomePosition.Location = new System.Drawing.Point(194, 103);
+            this.buttonHomePosition.Name = "buttonHomePosition";
+            this.buttonHomePosition.Size = new System.Drawing.Size(156, 23);
+            this.buttonHomePosition.TabIndex = 98;
+            this.buttonHomePosition.Text = "设置零点";
+            this.buttonHomePosition.UseVisualStyleBackColor = true;
+            this.buttonHomePosition.Click += new System.EventHandler(this.buttonHomePosition_Click);
             // 
             // RobotControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button13);
-            this.Controls.Add(this.button14);
-            this.Controls.Add(this.button15);
-            this.Controls.Add(this.button16);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonHomePosition);
+            this.Controls.Add(this.buttonRightX10);
+            this.Controls.Add(this.buttonLeftX10);
+            this.Controls.Add(this.buttonLeftX);
+            this.Controls.Add(this.buttonRightX);
+            this.Controls.Add(this.buttonBackX);
+            this.Controls.Add(this.buttonRightZ10);
+            this.Controls.Add(this.buttonLeftZ10);
+            this.Controls.Add(this.buttonLeftZ);
+            this.Controls.Add(this.buttonRightZ);
+            this.Controls.Add(this.buttonBackZ);
+            this.Controls.Add(this.buttonRightY10);
+            this.Controls.Add(this.buttonLeftY10);
+            this.Controls.Add(this.buttonLeftY);
+            this.Controls.Add(this.buttonRightY);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonBackY);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.runButton);
-            this.Controls.Add(this.zGo);
             this.Controls.Add(this.steppersEnabledBox);
             this.Controls.Add(this.pause_resume_button);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.zbox);
             this.Name = "RobotControl";
-            this.Size = new System.Drawing.Size(683, 124);
+            this.Size = new System.Drawing.Size(606, 134);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -373,28 +391,27 @@
 
         private System.Windows.Forms.CheckBox steppersEnabledBox;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.TextBox zbox;
         private System.Windows.Forms.Button pause_resume_button;
-        private System.Windows.Forms.Button zGo;
         private System.Windows.Forms.Button runButton;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonBackY;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button buttonRightY;
+        private System.Windows.Forms.Button buttonLeftY;
+        private System.Windows.Forms.Button buttonLeftY10;
+        private System.Windows.Forms.Button buttonRightY10;
+        private System.Windows.Forms.Button buttonRightZ10;
+        private System.Windows.Forms.Button buttonLeftZ10;
+        private System.Windows.Forms.Button buttonLeftZ;
+        private System.Windows.Forms.Button buttonRightZ;
+        private System.Windows.Forms.Button buttonBackZ;
+        private System.Windows.Forms.Button buttonRightX10;
+        private System.Windows.Forms.Button buttonLeftX10;
+        private System.Windows.Forms.Button buttonLeftX;
+        private System.Windows.Forms.Button buttonRightX;
+        private System.Windows.Forms.Button buttonBackX;
+        private System.Windows.Forms.Button buttonHomePosition;
     }
 }

@@ -88,6 +88,8 @@ namespace Serial
                     
                     if (newDataAvailable != null)
                     {
+
+                        //Console.WriteLine("Rx'd byte = " + data);
                         newDataAvailable(data);
                     }
                 }

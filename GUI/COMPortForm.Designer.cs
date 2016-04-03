@@ -38,7 +38,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 39);
+            this.label2.Location = new System.Drawing.Point(12, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 12;
@@ -55,9 +55,9 @@
             // 
             // baudBox
             // 
-            this.baudBox.Location = new System.Drawing.Point(76, 36);
+            this.baudBox.Location = new System.Drawing.Point(76, 39);
             this.baudBox.Name = "baudBox";
-            this.baudBox.Size = new System.Drawing.Size(89, 21);
+            this.baudBox.Size = new System.Drawing.Size(214, 21);
             this.baudBox.TabIndex = 10;
             this.baudBox.Text = "115200";
             this.baudBox.TextChanged += new System.EventHandler(this.baudBox_TextChanged);
@@ -65,9 +65,9 @@
             // connect
             // 
             this.connect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.connect.Location = new System.Drawing.Point(12, 60);
+            this.connect.Location = new System.Drawing.Point(12, 69);
             this.connect.Name = "connect";
-            this.connect.Size = new System.Drawing.Size(153, 21);
+            this.connect.Size = new System.Drawing.Size(278, 28);
             this.connect.TabIndex = 8;
             this.connect.Text = "连接";
             this.connect.UseVisualStyleBackColor = true;
@@ -77,9 +77,9 @@
             // 
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(44, 11);
+            this.comboBox1.Location = new System.Drawing.Point(76, 11);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.Size = new System.Drawing.Size(214, 20);
             this.comboBox1.TabIndex = 15;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -87,7 +87,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(178, 90);
+            this.ClientSize = new System.Drawing.Size(302, 109);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
