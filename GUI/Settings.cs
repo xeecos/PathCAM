@@ -21,7 +21,7 @@ namespace GUI
             this.robot = robot;
         }
 
-        [DisplayName("Tab Height")]
+        [DisplayName("顶部高度")]
         [Description("Height of the tabs in inches")]
         public float TabHeight
         {
@@ -40,7 +40,7 @@ namespace GUI
             set { router.LastPassHeight = value; }
         }
 
-        [DisplayName("Tool Diameter")]
+        [DisplayName("刀具直径")]
         [Description("Tool Diameter in inches")]
         public float ToolDiameter
         {
@@ -48,7 +48,7 @@ namespace GUI
             set { router.ToolDiameter = value; }
         }
 
-        [DisplayName("Move Height")]
+        [DisplayName("安全高度")]
         [Description("Safe travel height")]
         public float MoveHeight
         {
@@ -56,7 +56,7 @@ namespace GUI
             set { router.MoveHeight = value; }
         }
 
-        [DisplayName("Max Cut Depth")]
+        [DisplayName("层厚")]
         [Description("Maximum Cut Depth")]
         public float MaxCutDepth
         {
@@ -66,7 +66,7 @@ namespace GUI
 
 
 
-        [DisplayName("Cutting Speed")]
+        [DisplayName("切割速度")]
         [Description("Cutting Speed (inches per minute)")]
         public float RoutSpeed
         {
@@ -74,7 +74,7 @@ namespace GUI
             set { robot.MaxCutSpeed = value; }
         }
 
-        [DisplayName("Moving Speed")]
+        [DisplayName("移动速度")]
         [Description("Rapid movement speed (inches per minute)")]
         public float MoveSpeed
         {
@@ -82,7 +82,7 @@ namespace GUI
             set { robot.MaxRapidSpeed = value; }
         }
 
-        [DisplayName("Max Z Speed")]
+        [DisplayName("最大Z轴速度")]
         [Description("Maximum possible Z axis speed (inches per minute)")]
         public float MaxAxisSpeeds
         {

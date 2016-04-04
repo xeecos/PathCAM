@@ -147,7 +147,7 @@ namespace GUI
             }
             if (triangleMesh != null && triangleMesh.Triangles.Count() > 0)
             {
-                triangleMesh.GenerateTabPaths(router.ToolDiameter / 2.0f);
+                triangleMesh.GenerateTabPaths(router.ToolDiameterScale / 2.0f);
                 triangleMesh.RefreshDisplayLists(); // The triangles will be static after this point - make sure they're correctly displayed.
             }
             e.Result = triangleMesh;
@@ -211,20 +211,20 @@ namespace GUI
 
         private void boundaryCheckButton_Click(object sender, EventArgs e)
         {
-            float xMin = -router.ToolDiameter;
-            float xMax = router.ToolDiameter;
-            float yMin = -router.ToolDiameter;
-            float yMax = router.ToolDiameter;
+            float xMin = -router.ToolDiameterScale;
+            float xMax = router.ToolDiameterScale;
+            float yMin = -router.ToolDiameterScale;
+            float yMax = router.ToolDiameterScale;
 
             foreach (Object o in drawing3D.GetObjects())
             {
                 if (o is TriangleMeshGUI)
                 {
                     var triangles = o as TriangleMeshGUI;
-                    xMin = Math.Min(triangles.MinPoint.X - router.ToolDiameter + triangles.Offset.X, xMin);
-                    xMax = Math.Max(triangles.MaxPoint.X + router.ToolDiameter + triangles.Offset.X, xMax);
-                    yMin = Math.Min(triangles.MinPoint.Y - router.ToolDiameter + triangles.Offset.Y, yMin);
-                    yMax = Math.Max(triangles.MaxPoint.Y + router.ToolDiameter + triangles.Offset.Y, yMax);
+                    xMin = Math.Min(triangles.MinPoint.X - router.ToolDiameterScale + triangles.Offset.X, xMin);
+                    xMax = Math.Max(triangles.MaxPoint.X + router.ToolDiameterScale + triangles.Offset.X, xMax);
+                    yMin = Math.Min(triangles.MinPoint.Y - router.ToolDiameterScale + triangles.Offset.Y, yMin);
+                    yMax = Math.Max(triangles.MaxPoint.Y + router.ToolDiameterScale + triangles.Offset.Y, yMax);
                 }
             }
 
@@ -262,7 +262,7 @@ namespace GUI
             router.ClearCommands();
         }
 
-        private float loadObjectScale = 1.0f;
+        private float loadObjectScale = 2.54f;
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             float targetScale = 0.0f;
@@ -277,7 +277,7 @@ namespace GUI
             {
                 comboBox1.BackColor = SystemColors.Window;
                 openFileButton.Enabled = true;
-                loadObjectScale = targetScale / sourceScale;
+                loadObjectScale = 25.4f;// targetScale / sourceScale;
             }
             else
             {
@@ -372,7 +372,6 @@ namespace GUI
             this.comboBox1.Size = new System.Drawing.Size(134, 20);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "1:1 (inches)";
-            this.comboBox1.Visible = false;
             this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // openFileButton

@@ -35,11 +35,11 @@ namespace Router
         private List<ICommand> commands;
         private Vector3 finalPosition = new Vector3(0, 0, 0);
 
-        private float toolDiameter = 0.1875f;
-        private float move_height = 0.550f; // How high above the surface to move the router
-        private float max_cut_depth = .250f; // Maximum cut depth in inches
+        private float toolDiameter = 1.75f;
+        private float move_height = 1f; // How high above the surface to move the router
+        private float max_cut_depth = .5f; // Maximum cut depth in inches
         private float lastPassHeight = -.020f; // Height of the last rout
-        float tabHeight = 0.050f;
+        float tabHeight = 0.50f;
         
 
         public Router()
@@ -77,7 +77,10 @@ namespace Router
             get { return lastPassHeight; }
             set { lastPassHeight = value; }
         }
-
+        public float ToolDiameterScale
+        {
+            get { return toolDiameter/10.0f; }
+        }
         public float ToolDiameter
         {
             get { return toolDiameter; }

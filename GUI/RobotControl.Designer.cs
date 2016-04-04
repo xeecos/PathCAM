@@ -68,7 +68,6 @@
             this.steppersEnabledBox.TabIndex = 3;
             this.steppersEnabledBox.Text = "使能步进电机";
             this.steppersEnabledBox.UseVisualStyleBackColor = true;
-            this.steppersEnabledBox.CheckedChanged += new System.EventHandler(this.steppersEnabledBox_CheckedChanged);
             this.steppersEnabledBox.Click += new System.EventHandler(this.steppersEnabledBox_Click);
             // 
             // cancelButton
@@ -123,10 +122,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 12);
+            this.label1.Size = new System.Drawing.Size(323, 12);
             this.label1.TabIndex = 80;
-            this.label1.Text = "------------CNC------------";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.Text = "------------------------Robot------------------------";
             // 
             // buttonBackY
             // 
@@ -229,7 +227,7 @@
             this.buttonRightZ10.Name = "buttonRightZ10";
             this.buttonRightZ10.Size = new System.Drawing.Size(75, 23);
             this.buttonRightZ10.TabIndex = 92;
-            this.buttonRightZ10.Text = "Z +10";
+            this.buttonRightZ10.Text = "Z +5";
             this.buttonRightZ10.UseVisualStyleBackColor = true;
             this.buttonRightZ10.Click += new System.EventHandler(this.buttonRightZ10_Click);
             // 
@@ -241,7 +239,7 @@
             this.buttonLeftZ10.Name = "buttonLeftZ10";
             this.buttonLeftZ10.Size = new System.Drawing.Size(75, 23);
             this.buttonLeftZ10.TabIndex = 91;
-            this.buttonLeftZ10.Text = "Z -10";
+            this.buttonLeftZ10.Text = "Z -5";
             this.buttonLeftZ10.UseVisualStyleBackColor = true;
             this.buttonLeftZ10.Click += new System.EventHandler(this.buttonLeftZ10_Click);
             // 
@@ -253,7 +251,7 @@
             this.buttonLeftZ.Name = "buttonLeftZ";
             this.buttonLeftZ.Size = new System.Drawing.Size(75, 23);
             this.buttonLeftZ.TabIndex = 90;
-            this.buttonLeftZ.Text = "Z -1";
+            this.buttonLeftZ.Text = "Z -0.2";
             this.buttonLeftZ.UseVisualStyleBackColor = true;
             this.buttonLeftZ.Click += new System.EventHandler(this.buttonLeftZ_Click);
             // 
@@ -265,7 +263,7 @@
             this.buttonRightZ.Name = "buttonRightZ";
             this.buttonRightZ.Size = new System.Drawing.Size(75, 23);
             this.buttonRightZ.TabIndex = 89;
-            this.buttonRightZ.Text = "Z +1";
+            this.buttonRightZ.Text = "Z +0.2";
             this.buttonRightZ.UseVisualStyleBackColor = true;
             this.buttonRightZ.Click += new System.EventHandler(this.buttonRightZ_Click);
             // 

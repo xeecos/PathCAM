@@ -98,7 +98,7 @@ namespace Router
                 file.WriteLine("G20 (Units are Inches)");
                 file.WriteLine("G90 (Absolute Positioning)");
                 file.WriteLine("G94 (Units per Minute feed rate)");
-                
+                file.WriteLine("M4 (Enable Motor)");
                 // TODO: paramaterize these
                 float rapidSpeed = 50.0f;
                 float cuttingSpeed = 25.0f;
@@ -132,6 +132,7 @@ namespace Router
                         
                     }
                 }
+                file.WriteLine("M5 (Disable Motor)");
             }
         }
 

@@ -110,11 +110,11 @@ namespace GUI
             // Draw the tool location as a cone
             Vector3 position = robot.GetPosition();
             GL.Color3(Color.Silver);
-            Polyhedra.DrawCone(position + new Vector3(0, 0, router.ToolDiameter), position, router.ToolDiameter / 2.0f);
+            Polyhedra.DrawCone(position + new Vector3(0, 0, router.ToolDiameterScale), position, router.ToolDiameterScale / 2.0f);
 
             Vector3 physicalPosition = robot.GetPhysicalPosition();
             GL.Color3(Color.Black);
-            Polyhedra.DrawCone(physicalPosition + new Vector3(0, 0, router.ToolDiameter), physicalPosition, router.ToolDiameter / 2.0f);
+            Polyhedra.DrawCone(physicalPosition + new Vector3(0, 0, router.ToolDiameterScale), physicalPosition, router.ToolDiameterScale / 2.0f);
 
 
             //// Draw the past positions & velocity graph
@@ -240,135 +240,97 @@ namespace GUI
         {
             robot.z_offset = (float)numericUpDown1.Value;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void steppersEnabledBox_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
         
 
         private void buttonBackX_Click(object sender, EventArgs e)
         {
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(0, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(0, vec.Y, vec.Z);
         }
 
         private void buttonBackY_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, 0, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, 0, vec.Z);
         }
 
         private void buttonBackZ_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, 0), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y, 0);
         }
 
         private void buttonLeftX_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X - 1, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X-1, vec.Y, vec.Z);
         }
 
         private void buttonLeftX10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X - 10, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X-10, vec.Y, vec.Z);
         }
 
         private void buttonLeftY_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y-1, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y-1, vec.Z);
         }
 
         private void buttonLeftY10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y - 10, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y-10, vec.Z);
         }
 
         private void buttonLeftZ_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z-1), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y, vec.Z-0.2f);
         }
 
         private void buttonLeftZ10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z-10), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y, vec.Z-5);
         }
 
         private void buttonRightZ_Click(object sender, EventArgs e)
         {
 
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z+1), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y, vec.Z + 0.2f);
         }
 
         private void buttonRightZ10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y, vec.Z+10), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y, vec.Z + 5);
         }
 
         private void buttonRightY10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y+10, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y+10, vec.Z);
         }
 
         private void buttonRightY_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X, vec.Y+1, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X, vec.Y + 1, vec.Z);
         }
 
         private void buttonRightX_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X+1, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X+1, vec.Y, vec.Z);
         }
 
         private void buttonRightX10_Click(object sender, EventArgs e)
         {
-
             Vector3 vec = robot.GetPosition();
-            MoveTool move = new MoveTool(new Vector3(vec.X+10, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
-            robot.AddCommand(move);
+            robot.moveTo(vec.X + 10, vec.Y, vec.Z);
         }
 
         private void checkBoxMotor_Click(object sender, EventArgs e)

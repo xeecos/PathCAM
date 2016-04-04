@@ -26,7 +26,7 @@ namespace GUI
             // Draw the tool location as a cone
             Vector3 position = GetPosition();
             GL.Color3(Color.Silver);
-            Polyhedra.DrawCone(position + new Vector3(0, 0, router.ToolDiameter), position, router.ToolDiameter / 2.0f);
+            Polyhedra.DrawCone(position + new Vector3(0, 0, router.ToolDiameterScale), position, router.ToolDiameterScale / 2.0f);
 
 
 

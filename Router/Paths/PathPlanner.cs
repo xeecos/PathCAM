@@ -38,7 +38,7 @@ namespace Router.Paths
         /// <returns></returns>
         private static List<Slice> GetSlices(TriangleMesh triangles, Router router)
         {
-            float maxCutDepth = router.MaxCutDepth;
+            float maxCutDepth = router.MaxCutDepth/10.0f;
             float minZ = triangles.MinPoint.Z;
             float maxZ = triangles.MaxPoint.Z;
 
@@ -72,7 +72,7 @@ namespace Router.Paths
                 tab.TabHeight = router.TabHeight;
             }
 
-            float toolRadius = router.ToolDiameter / 2.0f;
+            float toolRadius = router.ToolDiameterScale / 2.0f;
             float maxCutDepth = router.MaxCutDepth;
             float lastPassHeight = router.LastPassHeight;
             float cleanPassFactor = 0.90f; // 90% of the tool radius will be removed on the clean pass

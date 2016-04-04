@@ -44,7 +44,6 @@ namespace Robot
         private float maxZSpeed = 30;
         private float maxCutSpeed = 100.0f;
         private float maxRapidSpeed = 250.0f;
-
         bool sendResumeCommand = false;
         bool sendPauseCommand = false;
         bool sendCancelCommand = false;
@@ -118,7 +117,15 @@ namespace Robot
         {
             commands.Enqueue(command);
         }
+        public void moveTo(float x,float y,float z)
+        {
+            sendSerialCommand("G1 X" + x + " Y" + y + " Z" + z + " F" + maxRapidSpeed);
+        }
+        public void sendSerialCommand(String gcode)
+        {
 
+            serial.Transmit(System.Text.Encoding.ASCII.GetBytes(gcode+"\r\n"));
+        }
 
         public float MaxZSpeed
         {

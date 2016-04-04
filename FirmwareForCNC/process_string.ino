@@ -316,19 +316,19 @@ void process_string(char instruction[], int size)
       println("Grbl 0.9");
     break;
     case 101:
-    print("<Idle,MPos:");
-    Serial.print(current_move_ptr->target_units[0]);
-    print(",");
-    Serial.print(current_move_ptr->target_units[1]);
-    print(",");
-    Serial.print(current_move_ptr->target_units[2]);
-    print(",WPos:");
-    Serial.print(current_move_ptr->target_units[0]);
-    print(",");
-    Serial.print(current_move_ptr->target_units[1]);
-    print(",");
-    Serial.print(current_move_ptr->target_units[2]);
-    println(">");
+      print("<idle,mpos:");
+      Serial.print(current_move_ptr->target_units[0]);
+      print(",");
+      Serial.print(current_move_ptr->target_units[1]);
+      print(",");
+      Serial.print(current_move_ptr->target_units[2]);
+      print(",wpos:");
+      Serial.print(current_move_ptr->target_units[0]);
+      print(",");
+      Serial.print(current_move_ptr->target_units[1]);
+      print(",");
+      Serial.print(current_move_ptr->target_units[2]);
+      println(">");
     break;
     default:
      print("huh? G");
