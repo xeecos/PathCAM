@@ -355,7 +355,12 @@ void process_string(char instruction[], int size)
   {
     switch (intVals[M_CODE_INDEX])
     {
-
+      case 4:
+        motorRun(200);
+        break;
+      case 5:
+        motorRun(0);
+        break;
     default:
       //println("Huh?");
       print("Huh? M");

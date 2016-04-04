@@ -1,5 +1,6 @@
 #include "FirmwareForCNC.h"
 
+
 #define COMMAND_SIZE 128
 char command[COMMAND_SIZE];
 byte serial_count;
@@ -23,12 +24,13 @@ unsigned int timer1LoadValue, nextTimer1LoadValue;
 
 void setup()
 {
-  Serial.begin(115200); // Don't need to give a baud rate because it is fixed at 19200 in our optimised version
+  Serial.begin(38400); // Don't need to give a baud rate because it is fixed at 19200 in our optimised version
   init_steppers();
   init_process_string();
   calculateAccelConstants();
   SetupTimer1();
-  println("start");
+  println("Grbl 0.9j start");
+  motorRun(0);
 }
 
 void loop()

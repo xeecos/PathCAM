@@ -52,6 +52,7 @@
             this.buttonRightX = new System.Windows.Forms.Button();
             this.buttonBackX = new System.Windows.Forms.Button();
             this.buttonHomePosition = new System.Windows.Forms.Button();
+            this.checkBoxMotor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -352,9 +353,24 @@
             this.buttonHomePosition.UseVisualStyleBackColor = true;
             this.buttonHomePosition.Click += new System.EventHandler(this.buttonHomePosition_Click);
             // 
+            // checkBoxMotor
+            // 
+            this.checkBoxMotor.AutoCheck = false;
+            this.checkBoxMotor.AutoSize = true;
+            this.checkBoxMotor.Enabled = false;
+            this.checkBoxMotor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxMotor.Location = new System.Drawing.Point(388, 106);
+            this.checkBoxMotor.Name = "checkBoxMotor";
+            this.checkBoxMotor.Size = new System.Drawing.Size(69, 16);
+            this.checkBoxMotor.TabIndex = 99;
+            this.checkBoxMotor.Text = "使能电机";
+            this.checkBoxMotor.UseVisualStyleBackColor = true;
+            this.checkBoxMotor.Click += new System.EventHandler(this.checkBoxMotor_Click);
+            // 
             // RobotControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.checkBoxMotor);
             this.Controls.Add(this.buttonHomePosition);
             this.Controls.Add(this.buttonRightX10);
             this.Controls.Add(this.buttonLeftX10);
@@ -381,6 +397,7 @@
             this.Controls.Add(this.cancelButton);
             this.Name = "RobotControl";
             this.Size = new System.Drawing.Size(606, 134);
+            this.Load += new System.EventHandler(this.RobotControl_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -413,5 +430,6 @@
         private System.Windows.Forms.Button buttonRightX;
         private System.Windows.Forms.Button buttonBackX;
         private System.Windows.Forms.Button buttonHomePosition;
+        private System.Windows.Forms.CheckBox checkBoxMotor;
     }
 }

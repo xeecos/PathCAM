@@ -96,7 +96,14 @@ namespace Robot
             sendEnableStepperCommand = false;
             sendDisableStepperCommand = true;
         }
-
+        public void EnableDCMotor()
+        {
+            serial.Transmit(System.Text.Encoding.ASCII.GetBytes("M4\r\n"));
+        }
+        public void DisableDCMotor()
+        {
+            serial.Transmit(System.Text.Encoding.ASCII.GetBytes("M5\r\n"));
+        }
         public Vector3 GetPosition()
         {
             return currentPosition - new Vector3(0, 0, z_offset);

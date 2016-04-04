@@ -59,7 +59,7 @@
             this.baudBox.Name = "baudBox";
             this.baudBox.Size = new System.Drawing.Size(214, 21);
             this.baudBox.TabIndex = 10;
-            this.baudBox.Text = "115200";
+            this.baudBox.Text = "38400";
             this.baudBox.TextChanged += new System.EventHandler(this.baudBox_TextChanged);
             // 
             // connect

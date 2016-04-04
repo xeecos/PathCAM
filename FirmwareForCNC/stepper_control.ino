@@ -47,7 +47,13 @@ void init_steppers()
   // Turn them off to start.
    disable_steppers();
 #endif
+#if defined(__AVR_ATmega2560__) //else ATmega2560
+  TCCR1A = _BV(WGM10);
+  TCCR1B = _BV(CS11) | _BV(CS10) | _BV(WGM12);
 
+  TCCR2A = _BV(WGM21) | _BV(WGM20);
+  TCCR2B = _BV(CS22);
+#endif
 /*  // hack to open limit switches
   pinMode(X_MIN_PIN, OUTPUT);
   digitalWrite(X_MIN_PIN,HIGH);
@@ -63,7 +69,7 @@ void init_steppers()
   unsigned char enable_pins[3] = { X_ENABLE_PIN, Y_ENABLE_PIN, Z_ENABLE_PIN };
   unsigned char min_pins[3] = { X_MIN_PIN, Y_MIN_PIN, Z_MIN_PIN };
   unsigned char max_pins[3] = { X_MAX_PIN, Y_MAX_PIN, Z_MAX_PIN };
-
+  
   // Set up initial pointers to move queue - these will
   // be continuously rotated in operation
   current_move_ptr = &move_queue[0];
@@ -99,8 +105,102 @@ void init_steppers()
     current_steps[i] = 0;
   }
   current_move_ptr->step_delay = 0;
+  
+  pinMode(X_MICROSTEP_1, OUTPUT);
+  pinMode(X_MICROSTEP_2, OUTPUT);
+  pinMode(X_MICROSTEP_3, OUTPUT);
+  pinMode(Y_MICROSTEP_1, OUTPUT);
+  pinMode(Y_MICROSTEP_2, OUTPUT);
+  pinMode(Y_MICROSTEP_3, OUTPUT);
+  pinMode(Z_MICROSTEP_1, OUTPUT);
+  pinMode(Z_MICROSTEP_2, OUTPUT);
+  pinMode(Z_MICROSTEP_3, OUTPUT);
+  setMicroStep(4);
 }
-
+void setMicroStep(int8_t value)
+{
+  switch (value)
+  {
+    case 1:
+      digitalWrite(X_MICROSTEP_1,0);
+      digitalWrite(X_MICROSTEP_2,0);
+      digitalWrite(X_MICROSTEP_3,0);
+      digitalWrite(Y_MICROSTEP_1,0);
+      digitalWrite(Y_MICROSTEP_2,0);
+      digitalWrite(Y_MICROSTEP_3,0);
+      digitalWrite(Z_MICROSTEP_1,0);
+      digitalWrite(Z_MICROSTEP_2,0);
+      digitalWrite(Z_MICROSTEP_3,0);
+      break;
+    case 2:
+      digitalWrite(X_MICROSTEP_1,1);
+      digitalWrite(X_MICROSTEP_2,0);
+      digitalWrite(X_MICROSTEP_3,0);
+      digitalWrite(Y_MICROSTEP_1,1);
+      digitalWrite(Y_MICROSTEP_2,0);
+      digitalWrite(Y_MICROSTEP_3,0);
+      digitalWrite(Z_MICROSTEP_1,1);
+      digitalWrite(Z_MICROSTEP_2,0);
+      digitalWrite(Z_MICROSTEP_3,0);
+      break;
+    case 4:
+      digitalWrite(X_MICROSTEP_1,0);
+      digitalWrite(X_MICROSTEP_2,1);
+      digitalWrite(X_MICROSTEP_3,0);
+      digitalWrite(Y_MICROSTEP_1,0);
+      digitalWrite(Y_MICROSTEP_2,1);
+      digitalWrite(Y_MICROSTEP_3,0);
+      digitalWrite(Z_MICROSTEP_1,0);
+      digitalWrite(Z_MICROSTEP_2,1);
+      digitalWrite(Z_MICROSTEP_3,0);
+      break;
+    case 8:
+      digitalWrite(X_MICROSTEP_1,1);
+      digitalWrite(X_MICROSTEP_2,1);
+      digitalWrite(X_MICROSTEP_3,0);
+      digitalWrite(Y_MICROSTEP_1,1);
+      digitalWrite(Y_MICROSTEP_2,1);
+      digitalWrite(Y_MICROSTEP_3,0);
+      digitalWrite(Z_MICROSTEP_1,1);
+      digitalWrite(Z_MICROSTEP_2,1);
+      digitalWrite(Z_MICROSTEP_3,0);
+      break;
+    case 16:
+      digitalWrite(X_MICROSTEP_1,0);
+      digitalWrite(X_MICROSTEP_2,0);
+      digitalWrite(X_MICROSTEP_3,1);
+      digitalWrite(Y_MICROSTEP_1,0);
+      digitalWrite(Y_MICROSTEP_2,0);
+      digitalWrite(Y_MICROSTEP_3,1);
+      digitalWrite(Z_MICROSTEP_1,0);
+      digitalWrite(Z_MICROSTEP_2,0);
+      digitalWrite(Z_MICROSTEP_3,1);
+      break;
+    case 32:
+      
+      digitalWrite(X_MICROSTEP_1,1);
+      digitalWrite(X_MICROSTEP_2,1);
+      digitalWrite(X_MICROSTEP_3,1);
+      digitalWrite(Y_MICROSTEP_1,1);
+      digitalWrite(Y_MICROSTEP_2,1);
+      digitalWrite(Y_MICROSTEP_3,1);
+      digitalWrite(Z_MICROSTEP_1,1);
+      digitalWrite(Z_MICROSTEP_2,1);
+      digitalWrite(Z_MICROSTEP_3,1);
+      break;
+    default:
+      digitalWrite(X_MICROSTEP_1,0);
+      digitalWrite(X_MICROSTEP_2,0);
+      digitalWrite(X_MICROSTEP_3,0);
+      digitalWrite(Y_MICROSTEP_1,0);
+      digitalWrite(Y_MICROSTEP_2,0);
+      digitalWrite(Y_MICROSTEP_3,0);
+      digitalWrite(Z_MICROSTEP_1,0);
+      digitalWrite(Z_MICROSTEP_2,0);
+      digitalWrite(Z_MICROSTEP_3,0);
+      break;
+  }
+}
 // Get output/input register and bitmask for a given pin
 void getRegAndBitmask(volatile uint8_t** reg, volatile uint8_t* bitmask, uint8_t pin, uint8_t mode) {
   uint8_t port = digitalPinToPort(pin);
@@ -644,4 +744,22 @@ boolean canStep(unsigned char axis, bool direction) {
 #endif
 #endif
   return true;
+}
+void motorRun(int16_t speed)
+{
+  speed  = speed > 255 ? 255 : speed;
+  speed = speed < -255 ? -255 : speed;
+
+  if(speed >= 0)
+  {
+    digitalWrite(MOTOR_DIR_PIN2, LOW);
+    digitalWrite(MOTOR_DIR_PIN1, HIGH);
+    analogWrite(MOTOR_PWM_PIN,speed);
+  }
+  else
+  {
+    digitalWrite(MOTOR_DIR_PIN1, LOW);
+    digitalWrite(MOTOR_DIR_PIN2, HIGH);
+    analogWrite(MOTOR_PWM_PIN,-speed);
+  }
 }

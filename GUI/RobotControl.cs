@@ -59,6 +59,7 @@ namespace GUI
                 {
                     this.runButton.Enabled = true;
                     this.steppersEnabledBox.Enabled = true;
+                    this.checkBoxMotor.Enabled = true;
                     this.buttonLeftX.Enabled = true;
                     this.buttonLeftY.Enabled = true;
                     this.buttonLeftZ.Enabled = true;
@@ -368,6 +369,24 @@ namespace GUI
             Vector3 vec = robot.GetPosition();
             MoveTool move = new MoveTool(new Vector3(vec.X+10, vec.Y, vec.Z), MoveTool.SpeedType.Rapid);
             robot.AddCommand(move);
+        }
+
+        private void checkBoxMotor_Click(object sender, EventArgs e)
+        {
+            if (checkBoxMotor.Checked)
+            {
+                robot.DisableDCMotor();
+            }
+            else
+            {
+                robot.EnableDCMotor();
+            }
+            checkBoxMotor.Checked = !checkBoxMotor.Checked;
+        }
+
+        private void RobotControl_Load(object sender, EventArgs e)
+        {
+
         }
 
 
