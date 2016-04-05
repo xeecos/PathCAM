@@ -164,7 +164,7 @@ namespace Robot
             internal override byte[] GenerateCommand()
             {
                 var target_mm = toLocation;
-                String s = String.Format("F{0:F3}\r\nG1 X{1:F4} Y{2:F4} Z{3:F4}\r\n?", target_mm_per_minute, target_mm.X, target_mm.Y, target_mm.Z);
+                String s = String.Format("G1 X{0:F4} Y{1:F4} Z{2:F4} F{3:F3}\r\n?", target_mm.X, target_mm.Y, target_mm.Z, target_mm_per_minute);
                 Console.WriteLine("Sending: " + s);
                 return System.Text.Encoding.ASCII.GetBytes(s);
             }

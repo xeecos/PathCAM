@@ -103,6 +103,14 @@ namespace Robot
         {
             serial.Transmit(System.Text.Encoding.ASCII.GetBytes("M5\r\n"));
         }
+        public void EnableCoord()
+        {
+            serial.Transmit(System.Text.Encoding.ASCII.GetBytes("G91\r\n"));
+        }
+        public void DisableCoord()
+        {
+            serial.Transmit(System.Text.Encoding.ASCII.GetBytes("G90\r\n"));
+        }
         public Vector3 GetPosition()
         {
             return currentPosition - new Vector3(0, 0, z_offset);
@@ -250,7 +258,7 @@ namespace Robot
                         Console.WriteLine("Unexpected Response from robot detection: " + (currentCommand as RobotDetectionCommand).DumpData());
                     }
                     // Expected reply not received within 1 second, assume command was lost.
-                    Console.WriteLine("Device Timeout!");
+                    //Console.WriteLine("Device Timeout!");
                 }
 
                 if (serial == null || !serial.IsOpen || elapsedCounter > timeout_ms)
@@ -266,6 +274,12 @@ namespace Robot
                     {
                         currentCommand = new RobotDetectionCommand();
                         serial.Transmit(currentCommand.GenerateCommand());
+
+                        if (onRobotStatusChange != null)
+                        {
+                            IRobotCommandWithStatus status = currentCommand as IRobotCommandWithStatus;
+                            onRobotStatusChange(status, EventArgs.Empty);
+                        }
                         elapsedCounter = 0;
                     }
                     else
@@ -320,7 +334,7 @@ namespace Robot
                             commandGenerator = r.GetCommandGenerator();
                         }
 
-                        currentCommand = GetNextCommand(canAcceptMoveCommand);
+                        currentCommand = GetNextCommand(true);
                         serial.Transmit(currentCommand.GenerateCommand());
                     }
                 }
@@ -365,8 +379,9 @@ namespace Robot
                 currentCommand = commandGenerator.GenerateStepperDisableCommand();
                 sendDisableStepperCommand = false;
             }
-            else if (canAcceptMoveCommand && lastPositionKnown)
+            else if (canAcceptMoveCommand)
             {
+                Console.WriteLine("lastPositionKnown: " + lastPositionKnown);
                 while (currentCommand == null && commands.Count > 0)
                 {
                     ICommand command = commands.Dequeue();

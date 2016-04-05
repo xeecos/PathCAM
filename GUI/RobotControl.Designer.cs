@@ -53,6 +53,7 @@
             this.buttonBackX = new System.Windows.Forms.Button();
             this.buttonHomePosition = new System.Windows.Forms.Button();
             this.checkBoxMotor = new System.Windows.Forms.CheckBox();
+            this.checkBoxCoord = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,11 +63,11 @@
             this.steppersEnabledBox.AutoSize = true;
             this.steppersEnabledBox.Enabled = false;
             this.steppersEnabledBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.steppersEnabledBox.Location = new System.Drawing.Point(500, 105);
+            this.steppersEnabledBox.Location = new System.Drawing.Point(524, 105);
             this.steppersEnabledBox.Name = "steppersEnabledBox";
-            this.steppersEnabledBox.Size = new System.Drawing.Size(93, 16);
+            this.steppersEnabledBox.Size = new System.Drawing.Size(69, 16);
             this.steppersEnabledBox.TabIndex = 3;
-            this.steppersEnabledBox.Text = "使能步进电机";
+            this.steppersEnabledBox.Text = "步进电机";
             this.steppersEnabledBox.UseVisualStyleBackColor = true;
             this.steppersEnabledBox.Click += new System.EventHandler(this.steppersEnabledBox_Click);
             // 
@@ -357,17 +358,35 @@
             this.checkBoxMotor.AutoSize = true;
             this.checkBoxMotor.Enabled = false;
             this.checkBoxMotor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxMotor.Location = new System.Drawing.Point(388, 106);
+            this.checkBoxMotor.Location = new System.Drawing.Point(443, 105);
             this.checkBoxMotor.Name = "checkBoxMotor";
             this.checkBoxMotor.Size = new System.Drawing.Size(69, 16);
             this.checkBoxMotor.TabIndex = 99;
-            this.checkBoxMotor.Text = "使能电机";
+            this.checkBoxMotor.Text = "主轴电机";
             this.checkBoxMotor.UseVisualStyleBackColor = true;
+            this.checkBoxMotor.CheckedChanged += new System.EventHandler(this.checkBoxMotor_CheckedChanged);
             this.checkBoxMotor.Click += new System.EventHandler(this.checkBoxMotor_Click);
+            // 
+            // checkBoxCoord
+            // 
+            this.checkBoxCoord.AutoCheck = false;
+            this.checkBoxCoord.AutoSize = true;
+            this.checkBoxCoord.Checked = true;
+            this.checkBoxCoord.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxCoord.Enabled = false;
+            this.checkBoxCoord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxCoord.Location = new System.Drawing.Point(356, 106);
+            this.checkBoxCoord.Name = "checkBoxCoord";
+            this.checkBoxCoord.Size = new System.Drawing.Size(69, 16);
+            this.checkBoxCoord.TabIndex = 100;
+            this.checkBoxCoord.Text = "相对坐标";
+            this.checkBoxCoord.UseVisualStyleBackColor = true;
+            this.checkBoxCoord.Click += new System.EventHandler(this.checkBoxCoord_Click);
             // 
             // RobotControl
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.Controls.Add(this.checkBoxCoord);
             this.Controls.Add(this.checkBoxMotor);
             this.Controls.Add(this.buttonHomePosition);
             this.Controls.Add(this.buttonRightX10);
@@ -429,5 +448,6 @@
         private System.Windows.Forms.Button buttonBackX;
         private System.Windows.Forms.Button buttonHomePosition;
         private System.Windows.Forms.CheckBox checkBoxMotor;
+        private System.Windows.Forms.CheckBox checkBoxCoord;
     }
 }

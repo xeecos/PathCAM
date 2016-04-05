@@ -54,9 +54,9 @@ namespace GUI
             }
             else
             {
-                IRobotCommandWithStatus status = o as IRobotCommandWithStatus;
+               /* IRobotCommandWithStatus status = o as IRobotCommandWithStatus;
                 if (status != null)
-                {
+                {*/
                     this.runButton.Enabled = true;
                     this.steppersEnabledBox.Enabled = true;
                     this.checkBoxMotor.Enabled = true;
@@ -76,36 +76,37 @@ namespace GUI
                     this.buttonBackY.Enabled = true;
                     this.buttonBackZ.Enabled = true;
                     this.buttonHomePosition.Enabled = true;
-                    this.steppersEnabledBox.Checked = status.SteppersEnabled;
-                    if (status.Pausing)
-                    {
-                        pause_resume_button.Text = "暂停中...";
-                        pause_resume_button.Enabled = false;
-                    }
-                    else
-                    {
-                        if (status.Paused)
-                        {
-                            if (pause_resume_button.Text != "继续")
-                            {
-                                cancelButton.Enabled = true;
-                                pause_resume_button.Text = "继续";
-                            }
-                        }
-                        else
-                        {
-                            if (pause_resume_button.Text != "暂停")
-                            {
-                                pause_resume_button.Text = "暂停";
-                            }
-                        }
-                        pause_resume_button.Enabled = true;
-                    }
+                    this.checkBoxCoord.Enabled = true;
+                /* this.steppersEnabledBox.Checked = status.SteppersEnabled;
+                 if (status.Pausing)
+                 {
+                     pause_resume_button.Text = "暂停中...";
+                     pause_resume_button.Enabled = false;
+                 }
+                 else
+                 {
+                     if (status.Paused)
+                     {
+                         if (pause_resume_button.Text != "继续")
+                         {
+                             cancelButton.Enabled = true;
+                             pause_resume_button.Text = "继续";
+                         }
+                     }
+                     else
+                     {
+                         if (pause_resume_button.Text != "暂停")
+                         {
+                             pause_resume_button.Text = "暂停";
+                         }
+                     }
+                     pause_resume_button.Enabled = true;
+                 }*/
+                // }
                 }
             }
-        }
 
-        void IOpenGLDrawable.Draw()
+            void IOpenGLDrawable.Draw()
         {
             // Draw the tool location as a cone
             Vector3 position = robot.GetPosition();
@@ -346,7 +347,29 @@ namespace GUI
             checkBoxMotor.Checked = !checkBoxMotor.Checked;
         }
 
+        private void checkBoxCoord_Click(object sender, EventArgs e)
+        {
+            if (checkBoxCoord.Checked)
+            {
+                robot.DisableCoord();
+            }
+            else
+            {
+                robot.EnableCoord();
+            }
+            checkBoxCoord.Checked = !checkBoxCoord.Checked;
+        }
         private void RobotControl_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxMotor_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxCoord_CheckedChanged(object sender, EventArgs e)
         {
 
         }

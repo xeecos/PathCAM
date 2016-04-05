@@ -58,7 +58,7 @@
 // RepRap stepper boards are *not* inverting.
 #define INVERT_DIR 1 // CHANGED CM - ONLY ONE FOR ALL AXES
 
-#define STEPPERS_ALWAYS_ON 0
+#define STEPPERS_ALWAYS_ON 1
 
 
 /****************************************************************************************
