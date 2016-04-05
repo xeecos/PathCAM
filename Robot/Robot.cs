@@ -205,7 +205,8 @@ namespace Robot
                 {
                     // Look for an ASCII communicating robot (like GRBL)
                     var s = System.Text.Encoding.ASCII.GetString(accumulator.ToArray());
-
+                    commandGenerator = new GrblCommandGenerator();
+                    return true;
                     if (s.EndsWith("\r\n", StringComparison.OrdinalIgnoreCase))
                     {
                         if (s.StartsWith("Grbl ") && s.Length >= 9)
@@ -215,8 +216,7 @@ namespace Robot
                             if (float.TryParse(version, out version_float) && version_float >= 0.8f)
                             {
                                 Console.WriteLine("Compatible Grbl type robot found: " + s.Substring(0, 9));
-                                commandGenerator = new GrblCommandGenerator();
-                                return true;
+                                
                             }
                         }
                         else
@@ -414,7 +414,7 @@ namespace Robot
 
             Vector3 delta = lastPosition - p;
             lastPosition = p;
-
+             
             if (delta.Length > 0)
             {
                 if (Math.Abs(delta.Z) > 0.0001f)

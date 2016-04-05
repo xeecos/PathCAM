@@ -68,6 +68,7 @@ namespace Robot
                     if (result.Equals("ok", StringComparison.OrdinalIgnoreCase))
                     {
                         canAcceptMoveCommand = true;
+                        return true;
                     }
                     else if (result.StartsWith("<") && result.EndsWith(">"))
                     {
