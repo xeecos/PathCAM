@@ -18,7 +18,7 @@ namespace GUI
     public partial class RobotControl : UserControl, IOpenGLDrawable
     {
         private Router.Router router;
-        private Robot.Robot robot;
+        public Robot.Robot robot;
         private SerialPortWrapper serial;
         private COMPortForm comPortForm = null;
         

@@ -91,7 +91,7 @@ namespace Router
             return commands;
         }
 
-        public static void ExportGCode(List<ICommand> commands, string filename)
+        public static void ExportGCode(List<ICommand> commands, string filename,float zOffset)
         {
             using (var file = File.CreateText(filename))
             {
@@ -116,19 +116,19 @@ namespace Router
                         var gCommand = m.Speed == MoveTool.SpeedType.Cutting ? "G1" : "G0";
                         
                         Vector3 target = m.Target * scale;
-                        float height = target.Z;
-                        if ((height + 0.001f) < lastHeight)
+                        float height = target.Z + zOffset;
+                        if ((height + 0.001f) < lastHeight + zOffset)
                         {
                             speed = Math.Min(plungeSpeed, speed);
                         }
-                        lastHeight = height;
+                        lastHeight = height + zOffset;
                         if (lastSpeed != speed)
                         {
                             lastSpeed = speed;
                             file.WriteLine("{0} F{1:F4}", gCommand, speed);
                         }
                         
-                        file.WriteLine("{0} X{1:F4} Y{2:F4} Z{3:F4}", gCommand, target.X, target.Y, target.Z);
+                        file.WriteLine("{0} X{1:F4} Y{2:F4} Z{3:F4}", gCommand, target.X, target.Y, target.Z + zOffset);
                         
                     }
                 }

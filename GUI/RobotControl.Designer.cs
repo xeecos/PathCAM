@@ -161,6 +161,11 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(110, 21);
             this.numericUpDown1.TabIndex = 82;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label2
@@ -168,9 +173,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(3, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 83;
-            this.label2.Text = "Z Offset";
+            this.label2.Text = "Z轴偏移";
             // 
             // buttonRightY
             // 

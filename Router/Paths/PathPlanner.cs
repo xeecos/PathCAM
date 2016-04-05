@@ -38,7 +38,7 @@ namespace Router.Paths
         /// <returns></returns>
         private static List<Slice> GetSlices(TriangleMesh triangles, Router router)
         {
-            float maxCutDepth = router.MaxCutDepth/10.0f;
+            float maxCutDepth = router.MaxCutDepth/1.0f;
             float minZ = triangles.MinPoint.Z;
             float maxZ = triangles.MaxPoint.Z;
 

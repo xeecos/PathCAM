@@ -262,7 +262,7 @@ namespace GUI
             router.ClearCommands();
         }
 
-        private float loadObjectScale = 2.54f;
+        private float loadObjectScale = 25.4f;
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             float targetScale = 0.0f;
@@ -277,7 +277,8 @@ namespace GUI
             {
                 comboBox1.BackColor = SystemColors.Window;
                 openFileButton.Enabled = true;
-                loadObjectScale = 25.4f;// targetScale / sourceScale;
+                loadObjectScale =  targetScale / sourceScale;
+                Console.WriteLine(loadObjectScale);
             }
             else
             {
@@ -372,7 +373,8 @@ namespace GUI
             this.comboBox1.Size = new System.Drawing.Size(134, 20);
             this.comboBox1.TabIndex = 7;
             this.comboBox1.Text = "1:1 (inches)";
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.Visible = false;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // openFileButton
             // 
@@ -473,7 +475,7 @@ namespace GUI
                 {
                     filename = filename + ".nc";
                 }
-                GCodeLoader.ExportGCode(router.GetCommands(), filename);
+                GCodeLoader.ExportGCode(router.GetCommands(), filename,this.robotControl.robot.z_offset);
             }
         }
 
@@ -497,5 +499,6 @@ namespace GUI
         {
 
         }
+        
     }
 }

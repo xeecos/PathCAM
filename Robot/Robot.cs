@@ -409,7 +409,6 @@ namespace Robot
         {
             var p = m.Target;
             p.Z += z_offset;
-
             float inches_per_minute = m.Speed == MoveTool.SpeedType.Cutting ? MaxCutSpeed : MaxRapidSpeed;
 
             Vector3 delta = lastPosition - p;

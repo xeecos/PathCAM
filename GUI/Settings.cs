@@ -21,8 +21,8 @@ namespace GUI
             this.robot = robot;
         }
 
-        [DisplayName("顶部高度")]
-        [Description("Height of the tabs in inches")]
+        [DisplayName("连接层高度")]
+        [Description("工件与材料连接处厚度")]
         public float TabHeight
         {
             get { return router.TabHeight; }
@@ -32,7 +32,7 @@ namespace GUI
         ///
         /// Accessors for the property grid
         ///
-        [DisplayName("Last Pass Height")]
+        [DisplayName("最后一刀的高度")]
         [Description("Height of the last pass in inches")]
         public float LastPassHeight
         {
