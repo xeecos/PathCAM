@@ -70,7 +70,8 @@
 //cartesian bot pins
 #define X_STEP_PIN 12
 #define X_DIR_PIN 11
-#define X_ENABLE_PIN 31
+#define X_ENABLE_PIN 35
+#define X_RESET_PIN 31
 #define X_MICROSTEP_1 34
 #define X_MICROSTEP_2 33
 #define X_MICROSTEP_3 32
@@ -79,7 +80,8 @@
 
 #define Y_STEP_PIN 8
 #define Y_DIR_PIN 7
-#define Y_ENABLE_PIN 38
+#define Y_ENABLE_PIN 36
+#define Y_RESET_PIN 38
 #define Y_MICROSTEP_1 37
 #define Y_MICROSTEP_2 40
 #define Y_MICROSTEP_3 41
@@ -88,7 +90,8 @@
 
 #define Z_STEP_PIN 9
 #define Z_DIR_PIN 6
-#define Z_ENABLE_PIN 49
+#define Z_ENABLE_PIN 42
+#define Z_RESET_PIN 49
 #define Z_MICROSTEP_1 43
 #define Z_MICROSTEP_2 47
 #define Z_MICROSTEP_3 48

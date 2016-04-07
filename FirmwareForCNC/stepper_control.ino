@@ -67,6 +67,7 @@ void init_steppers()
   unsigned char step_pins[3] = { X_STEP_PIN, Y_STEP_PIN, Z_STEP_PIN };
   unsigned char dir_pins[3] = { X_DIR_PIN, Y_DIR_PIN, Z_DIR_PIN };
   unsigned char enable_pins[3] = { X_ENABLE_PIN, Y_ENABLE_PIN, Z_ENABLE_PIN };
+  unsigned char reset_pins[3] = { X_RESET_PIN, Y_RESET_PIN, Z_RESET_PIN };
   unsigned char min_pins[3] = { X_MIN_PIN, Y_MIN_PIN, Z_MIN_PIN };
   unsigned char max_pins[3] = { X_MAX_PIN, Y_MAX_PIN, Z_MAX_PIN };
   
@@ -90,7 +91,8 @@ void init_steppers()
     pinMode(step_pins[i], OUTPUT);
     pinMode(dir_pins[i], OUTPUT);
     pinMode(enable_pins[i], OUTPUT);
-    
+    pinMode(reset_pins[i], OUTPUT);
+    digitalWrite(reset_pins[i], LOW);
     // Set mode for input pins (if applicable)
 #if ENDSTOPS_MIN_ENABLED == 1
     pinMode(min_pins[i], INPUT);
